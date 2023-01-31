@@ -10,6 +10,8 @@ import com.azure.communication.email.models.EmailContent;
 import com.azure.communication.email.models.EmailMessage;
 import com.azure.communication.email.models.EmailRecipients;
 import com.azure.communication.email.models.SendEmailResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.ExitCode;
@@ -32,6 +34,8 @@ public class SubcommandEmailSend implements Callable<Integer> {
 
     @Option(description = "Display this help and exit", names = { "-h", "--help" }, usageHelp = true)
     private boolean help;
+
+    private Logger logger = LoggerFactory.getLogger(SubcommandEmailSend.class);
 
     public Integer call() throws Exception {
 
@@ -57,7 +61,7 @@ public class SubcommandEmailSend implements Callable<Integer> {
 
         SendEmailResult response = emailClient.send(emailMessage);
 
-        System.err.println(response.getMessageId());
+        logger.info(response.getMessageId());
 
         return ExitCode.OK;
 
