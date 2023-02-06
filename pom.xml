@@ -7,14 +7,14 @@
     <name>examples-azure</name>
     <properties>
         <azure-sdk.version>1.2.8</azure-sdk.version>
-        <picocli.version>4.6.3</picocli.version>
+        <picocli.version>4.7.1</picocli.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.organization>rpiccio</sonar.organization>
-        <spring-boot.version>2.7.8</spring-boot.version>
+        <spring-boot.version>3.0.2</spring-boot.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -72,8 +72,13 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.5.0</version>
                 <executions>
                     <execution>
                         <id>copy-dependencies</id>
@@ -93,7 +98,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.3.0</version>
                 <configuration>
                     <archive>
                         <manifestEntries>
